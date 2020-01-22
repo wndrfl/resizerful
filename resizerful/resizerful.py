@@ -1,4 +1,3 @@
-import boto3
 import json
 import base64
 from M2Crypto import EVP
