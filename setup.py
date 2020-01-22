@@ -1,13 +1,13 @@
 from setuptools import setup
 
-setup(name='resizeful',
+setup(name='resizerful',
       version='0.1',
       description='Serverless image handler wrapper',
       url='git@github.com:wndrfl/resizerful.git',
       author='Manuel Aguilera',
       author_email='manuel@wonderful.io',
-      license='MIT',
-      packages=['resizeful'],
+      license='Matt',
+      packages=['resizerful'],
       install_requires=[
         'm2crypto',
       ],
