@@ -16,8 +16,11 @@ Make sure you get the PEM file and make not of the key paid ID
 
 ### Install
 
+Set up a github personal access token for this
+https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
+
 ```
-pipenv install -e "git+git@github.com:wndrfl/resizerful.git#egg=resizerful"
+pipenv install --verbose -e "git+https://manuelisimo:yourpersonaltoken@github.com/wndrfl/resizerful.git#egg=resizerful"
 ```
 
 ### Usage
