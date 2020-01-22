@@ -16,7 +16,9 @@ Make sure you get the PEM file and make not of the key paid ID
 
 ### Install
 
-todo: figure out how to install
+```
+pipenv install -e "git+git@github.com:wndrfl/resizerful.git#egg=resizerful"
+```
 
 ### Usage
 
