@@ -49,21 +49,23 @@ in this case, the private key in the variable key is the contents of
 the PEM file from the cloudfront distribution.
 
 Resizerful takes 4 required parameters
----------|---
-argument | Notes
-bucket_name | S3 bucket
-cf_base_url | base path of the clouldfront distribution
-key_pair_id | key pair id of the cloudfront distribution
-private_key | contents of PEM file of the key pair being used
+
+| argument | Notes |
+|----------|-------|
+| bucket_name | S3 bucket |
+| cf_base_url | base path of the clouldfront distribution |
+| key_pair_id | key pair id of the cloudfront distribution |
+| private_key | contents of PEM file of the key pair being used |
 
 signed_resize_url takes many parameters, including:
 
-width | width
-height | height
-fit | One of ('cover', 'contain', 'fill', 'inside', 'outside')
-grayscale | grayscale filter
-flatten | flattens the image, whatever that means
-flip | flips image vertically
-flop | flops image horizontally
-negate | some sort of retro filter
-normalise | another filter
+| width | width |
+|-------|-------|
+| height | height |
+| fit | One of ('cover', 'contain', 'fill', 'inside', 'outside') |
+| grayscale | grayscale filter |
+| flatten | flattens the image, whatever that means |
+| flip | flips image vertically |
+| flop | flops image horizontally |
+| negate | some sort of retro filter |
+| normalise | another filter |
