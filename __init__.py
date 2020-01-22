@@ -1,0 +1,1 @@
+from .resizerful import Resizeful
