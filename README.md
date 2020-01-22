@@ -2,22 +2,40 @@
 
 This is a serverless image handler wrapper
 
-https://aws.amazon.com/solutions/serverless-image-handler/
-
 ### Aws setup
 
-To deploy this basically follow the tutorial on the previous link.
-Also in the console logging in as the root account create a key value 
-pair for cloud front as described here
+To deploy this follow the following guide.
 
-https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html#private-content-creating-cloudfront-key-pairs
+https://aws.amazon.com/solutions/serverless-image-handler/
 
-Make sure you get the PEM file and make not of the key paid ID
+This will set up a an api gateway endpoint, a lambda, and a
+cloudfront distribution. At this point the image handler
+will serve images.
+
+To secure the images as suggested in the Security section of
+the guide we are using signed URLs. Make sure you also secure
+the following:
+
+ - Make sure the S3 bucket is set to be private
+ - Make sure the api gateway enpoint that calls the lambda
+   is also private
+
+Follow this section to secure the cloudfront distribution:
+
+[Serving Private Content with Signed URLs and Signed Cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html)
+
+there are two main steps,
+
+ - creating a [key value pair](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html#private-content-creating-cloudfront-key-pairs).
+   Make sure you get the PEM file and make note of the key paid ID
+
+ - restricting access under Cloudfront > Cloud Front distributions >
+   the distribution > Behaviors tab > Edit > "Restrict Viewer Access" => Yes
 
 ### Install
 
-Set up a github personal access token for this
-https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
+Set up a [github personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
+for this
 
 ```
 pipenv install --verbose -e "git+https://manuelisimo:yourpersonaltoken@github.com/wndrfl/resizerful.git#egg=resizerful"
