@@ -1,4 +1,4 @@
-# Resizeful
+# Resizerful
 
 This is a serverless image handler wrapper
 
@@ -34,11 +34,8 @@ there are two main steps,
 
 ### Install
 
-Set up a [github personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
-for this
-
 ```
-pipenv install --verbose -e "git+https://manuelisimo:yourpersonaltoken@github.com/wndrfl/resizerful.git#egg=resizerful"
+pipenv install -e "git+https://github.com/wndrfl/resizerful.git#egg=resizerful"
 ```
 
 ### Usage
@@ -66,7 +63,7 @@ signed_url = resizer.signed_resize_url('escape.jpg')
 print(signed_url)
 ```
 
-in this case, the private key in the variable key is the contents of
+In this case, the private key in the variable key is the contents of
 the PEM file from the cloudfront distribution.
 
 Resizerful takes 4 required parameters
