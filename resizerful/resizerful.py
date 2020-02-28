@@ -35,8 +35,8 @@ class Resizerful:
         if not hasattr(priv_key_string, 'decode'):
             priv_key_string = priv_key_string.encode('utf-8')
 
-        key = rsa.PrivateKey.load_pkcs1(private_key_string)
-        signature = rsa.sign(message.encode(), key, 'SHA-1')
+        key = rsa.PrivateKey.load_pkcs1(priv_key_string)
+        signature = rsa.sign(message, key, 'SHA-1')
         return self.aws_safe_b64encode(signature).decode('utf-8')
 
     def resize_image_url(self, image_name, grayscale=False, flatten=False, flip=False, flop=False, negate=False,
