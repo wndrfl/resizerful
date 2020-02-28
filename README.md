@@ -87,28 +87,3 @@ signed_resize_url takes many parameters, including:
 | flop | flops image horizontally |
 | negate | some sort of retro filter |
 | normalise | another filter |
-
-### Troubleshooting
-
-#### M2Crypto
-
-M2Crypto likes python 2 better but it works fine with python 3. If pipenv
-fails to build the M2Crypto wheel
-
-```
-sudo apt-get install libssl-dev swig
-```
-
-or in OSX
-
-```
-brew install openssl
-brew install swig
-
-env LDFLAGS="-L$(brew --prefix openssl)/lib" \
-  CFLAGS="-I$(brew --prefix openssl)/include" \
-  SWIG_FEATURES="-cpperraswarn -includeall -I$(brew --prefix openssl)/include" \
-  pipenv install m2crypto
-```
-
-and then try installing this again.

@@ -1,6 +1,6 @@
 import json
 import base64
-from M2Crypto import EVP
+import rsa
 import time
 
 
@@ -35,11 +35,8 @@ class Resizerful:
         if not hasattr(priv_key_string, 'decode'):
             priv_key_string = priv_key_string.encode('utf-8')
 
-        key = EVP.load_key_string(priv_key_string)
-        key.reset_context(md='sha1')
-        key.sign_init()
-        key.sign_update(message)
-        signature = key.sign_final()
+        key = rsa.PrivateKey.load_pkcs1(priv_key_string)
+        signature = rsa.sign(message, key, 'SHA-1')
         return self.aws_safe_b64encode(signature).decode('utf-8')
 
     def resize_image_url(self, image_name, grayscale=False, flatten=False, flip=False, flop=False, negate=False,

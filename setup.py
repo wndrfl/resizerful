@@ -9,6 +9,6 @@ setup(name='resizerful',
       license='Matt',
       packages=['resizerful'],
       install_requires=[
-        'm2crypto',
+        'rsa',
       ],
       zip_safe=False)

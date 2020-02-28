@@ -110,3 +110,6 @@ venv.bak/
 
 # PyCharm files
 .idea
+
+#test images
+*.jpg
