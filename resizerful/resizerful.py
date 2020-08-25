@@ -12,7 +12,6 @@ class Resizerful:
         'cf_base_url': None,
         'aws_encode_translation': bytes.maketrans(b'+=/', b'-_~'),
         'default_width': 320,
-        'default_height': 200,
         'default_fit': 'cover',
         'url_duration': 60 * 30  # 30 minutes (Unit is seconds)
     }
@@ -83,7 +82,6 @@ class Resizerful:
             "edits": {
                 "resize": {
                     "width": self.default_width,
-                    "height": self.default_height,
                     "fit": self.default_fit,
                 },
             }
