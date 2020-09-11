@@ -138,3 +138,7 @@ class Resizerful:
     def signed_resize_url(self, image_name, **kwargs):
         image_url = self.resize_image_url(image_name, **kwargs)
         return self.sign_url(image_url)
+
+    def unsigned_resize_url(self, image_name, **kwargs):
+        image_url = self.resize_image_url(image_name, **kwargs)
+        return image_url
