@@ -92,6 +92,8 @@ class Resizerful:
             image_options['edits']['resize']['height'] = kwargs['height']
         if 'fit' in kwargs:
             image_options['edits']['resize']['fit'] = kwargs['fit']
+        if 'quality' in kwargs:
+            image_options['edits']['jpeg']['quality'] = kwargs['quality']
         if grayscale:
             image_options['edits']['grayscale'] = True
         if flatten:
