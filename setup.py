@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='resizerful',
-      version='1.0.0',
+      version='1.0.1',
       description='Serverless image handler wrapper',
       url='git@github.com:wndrfl/resizerful.git',
       author='Manuel Aguilera',
