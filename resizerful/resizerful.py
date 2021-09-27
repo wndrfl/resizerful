@@ -95,6 +95,9 @@ class Resizerful:
                 "png": {
                     "compressionLevel": 6,
                 },
+                "webp": {
+                    "quality": 80,
+                },
             },
         }
         # TODO: Sanitize input
@@ -106,8 +109,9 @@ class Resizerful:
             image_options['edits']['resize']['fit'] = kwargs['fit']
         if 'format' in kwargs:
             image_options['edits']['toFormat'] = kwargs['format']
-        if 'jpeg_quality' in kwargs:
-            image_options['edits']['jpeg']['quality'] = kwargs['jpeg_quality']
+        if 'lossy_quality' in kwargs:
+            image_options['edits']['jpeg']['quality'] = kwargs['lossy_quality']
+            image_options['edits']['webp']['quality'] = kwargs['lossy_quality']
         if 'png_compression' in kwargs:
             image_options['edits']['png']['compressionLevel'] = kwargs['png_compression']
         if grayscale:
