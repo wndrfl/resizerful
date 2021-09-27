@@ -13,6 +13,7 @@ class Resizerful:
         'aws_encode_translation': bytes.maketrans(b'+=/', b'-_~'),
         'default_width': 320,
         'default_fit': 'cover',
+        'default_format': 'jpeg',
         'url_duration': 60 * 30  # 30 minutes (Unit is seconds)
     }
 
@@ -74,26 +75,41 @@ class Resizerful:
           }
         }
         We are assuming we are always resizing and then adding a few optional edits
+
+        Output Options
+            https://sharp.pixelplumbing.com/api-output
         """
 
         image_options = {
             "bucket": self.bucket_name,
             "key": image_name,
             "edits": {
+                "toFormat": self.default_format,
                 "resize": {
                     "width": self.default_width,
                     "fit": self.default_fit,
                 },
-            }
+                "jpeg": {
+                    "quality": 80,
+                },
+                "png": {
+                    "compressionLevel": 6,
+                },
+            },
         }
+        # TODO: Sanitize input
         if 'width' in kwargs:
             image_options['edits']['resize']['width'] = kwargs['width']
         if 'height' in kwargs:
             image_options['edits']['resize']['height'] = kwargs['height']
         if 'fit' in kwargs:
             image_options['edits']['resize']['fit'] = kwargs['fit']
-        if 'quality' in kwargs:
-            image_options['edits']['jpeg']['quality'] = kwargs['quality']
+        if 'format' in kwargs:
+            image_options['edits']['toFormat'] = kwargs['format']
+        if 'jpeg_quality' in kwargs:
+            image_options['edits']['jpeg']['quality'] = kwargs['jpeg_quality']
+        if 'png_compression' in kwargs:
+            image_options['edits']['png']['compressionLevel'] = kwargs['png_compression']
         if grayscale:
             image_options['edits']['grayscale'] = True
         if flatten:
